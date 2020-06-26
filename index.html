@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web design</title>
+    <style>
+        body{
+            margin:0;
+        }
+        *{
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header{
+            width:100%;
+            height:70%;
+            position:absolute;
+            background-image:url(bg.jpg);
+            background-repeat:no-repeat;
+            background-size: 150%;
+           overflow:hidden;
+        }
+
+        .navbar{
+            width:100%;
+            margin:0;
+            height:100px;
+           visibility:visible;
+        }
+
+        .navbar-open{
+           visibility:hidden;
+        }
+        .navbar ul{
+           margin:0;
+           display:flex;
+           list-style:none;
+           justify-content: center;
+           align-items: center;
+        }
+        .navbar ul li a{
+           display:block;
+           text-decoration: none;
+           color:#fff;
+           line-height:100px;
+           margin-left:20px;
+        }
+        .navbar ul li a:hover{
+            color:#74c8ef;
+        }
+
+        .header-title{
+          
+            position:absolute;
+            padding-bottom:220px;
+            padding-right:30%;
+            padding-left:30%;
+            bottom:0px;
+            left:0px;
+            
+        }
+        .header-title h1{
+            color:#fff;
+            font:bold 80px arial;
+            text-align:center;
+        }
+        .header-title h1 span{
+            color:#74c8ef;
+            font: 60px arial;
+            text-align:center;
+        }
+        .header-title p{
+            color:#9a9a9a;
+            /* font: 60px arial; */
+            text-align:center;
+        }
+
+        .container-fluid{
+            width:100%;
+            height:100%;
+            position:absolute;
+    
+            top:60%;
+         
+        }
+
+        .container{
+            width:900px;
+           
+            margin:0 auto;
+          column-count: 3;
+          column-gap: 30px;
+         padding:30px;
+          overflow:hidden;
+        }
+        .container .item{
+         
+            width:100%;
+            margin-bottom:30px;
+            box-shadow:0px 6px 20px #00000061;
+            position:relative;
+
+        }
+        .img{
+            width:100%;
+        }
+
+        .container .item .info{
+            width:100%;
+            height:100%;
+            background:linear-gradient(12deg, #59ecffb5, #003d71b5);
+            position:absolute;
+            left:0;
+            top:0;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            opacity:0;
+            transform:scale(0.5);
+            transition:0.5s ease;
+        }
+        .container .item:hover .info{
+            transition:0.5s ease;
+            opacity:1;
+            transform:scale(0.9);
+        }
+        .container .item .info h3{
+            color:#fff;
+        }
+
+        .nav-btn, .popup-btn{
+            width:50px;
+            height:50px;
+            position: fixed;
+            right:50px;
+            top:50px;
+            background-image: url('cross.svg');
+            background-size:60%;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index:8;
+            transform:scale(0.9);
+        }
+
+  
+
+        .popup-btn-open{
+            background-image: url('menu.svg');
+
+            transform:scale(1);
+        }
+
+        .nav-btn-open{
+            background-image: url('menu.svg');
+
+            transform:scale(1);
+        }
+
+        .logo{
+            position: fixed;
+            top:50px;
+            left:50px;
+            font-size:50px;
+            color:#fff;
+        }
+        .s{
+            color:#74c8ef;
+        }
+
+        .dinamic-content{
+            width:100%;
+            height:100%;
+            position:fixed;
+            background:#fff;
+            top:120px;
+            left:0;
+            display:none;
+            z-index:999999999999999999999999999999999999999;
+        }
+
+        input,button,textarea{
+            padding:10px 15px;
+
+        }
+        textarea{
+            width:50%;
+            height:160px;
+        }
+
+        @media(max-width:1024px){
+            .header-title{
+                padding-bottom: 170px;
+            }
+        }
+
+        @media(max-width:768px){
+            .header{
+                height:70%;
+                background-size: 500%;
+            }
+            .header-title{
+                padding-bottom: 110px;
+                top:120px
+            }
+            .logo{
+                top: 31px;
+                left: 25px;
+            }
+            .navbar ul{
+                display:block;
+                position:fixed;
+                z-index: 10;
+                background:#232323e8;
+                width:100%;
+                height:100%;
+                top: 0px;
+                padding-top:120px;
+            }
+
+            .navbar ul li a{
+                line-height: 50px;
+            }
+
+            .container{
+                width: 100%;
+                column-count: 2;
+            }
+
+            .header-title p{
+                display:none;
+            }
+
+        }
+        .dinamic-content-body{
+            width:800px;
+            height:auto;
+            margin:0 auto;
+        }
+        .dinamic-content-body h1{
+            font-size:60px;
+        }
+        .dinamic-content-body p{
+            font-size:30px;
+            color:#444;
+        }
+
+        @media(max-width:414px){
+
+.dinamic-content-body{
+    width:80%;
+   
+}
+.nav-btn{
+right:25px;
+top:30px;
+}
+.container{
+    width: 100%;
+    column-count: 2;
+}
+.header-title{
+    padding-bottom: 0px;
+    
+}
+}
+
+        @media(max-width:375px){
+
+            .dinamic-content-body{
+                width:80%;
+               
+            }
+           .nav-btn{
+            right:25px;
+            top:30px;
+           }
+            .container{
+                width: 100%;
+                column-count: 1;
+            }
+            .header-title{
+                padding-bottom: 0px;
+                
+            }
+        }
+        .popup{
+            width:100%;
+            height:100%;
+            background-color:#151515de;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:9;
+            visibility:hidden;
+            opacity:0;
+            transition:0.5s ease;
+            overflow:hidden;
+        }
+        .popup-add{
+            width:100%;
+            height:100%;
+            background-color:#151515de;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:9;
+            visibility:visible;
+            opacity:1;
+            transition:0.5s ease;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="popup">
+<div class="popup-btn"></div>
+    </div>
+    <div class="header">
+        <div class="logo">Logo.<span class="s">.</span>.</div>
+        <div class="nav-btn"></div>
+        <div class="navbar">
+            <ul>
+                <li><a class="link" href="#">Home</a></li>
+                <li><a class="link" href="#Programs">Programs</a></li>
+                <li><a class="link" href="#Plugins">Plugins</a></li>
+                <li><a class="link" href="#Scripts">Scripts</a></li>
+                <li><a class="link" href="#Contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-title">
+            <h1>Alex <span>Photon</span></h1>
+            <p>Whoever is designing for a living or even if it is a side job, create a cutting-edge online presence with designer website templates. No matter what niche you are in, these tools will take care of your websites with ease. While you can use them all as they are, feel free to add your personal touch to the preferred one and customize it. We all know how important having a unique and original approach is.</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+<div class="container">
+<div class="item" >
+    <div class="info">
+        <h3 data-img="1.jpg">product 1</h3>
+    </div>
+    <img src="1.jpg" class="img" alt="product 1">
+</div>
+<div class="item" >
+    <div class="info">
+        <h3 data-img="2.jpg">product 2</h3>
+    </div>
+    <img src="2.jpg" class="img" alt="product 2">
+</div>
+<div class="item" >
+    <div class="info">
+        <h3 data-img="3.jpg">product 3</h3>
+    </div>
+    <img src="3.jpg" class="img" alt="product 3">
+</div>
+<div class="item" >
+    <div class="info">
+        <h3 data-img="4.jpg">product 4</h3>
+    </div>
+    <img src="4.jpg" class="img" alt="product 4">
+</div>
+<div class="item" >
+    <div class="info">
+        <h3 data-img="5.jpg">product 5</h3>
+    </div>
+    <img src="5.jpg" class="img" alt="product 5">
+</div>
+<div class="item" >
+    <div class="info">
+        <h3 data-img="6.jpg">product 6</h3>
+    </div>
+    <img src="6.jpg" class="img" alt="product 6">
+</div>
+
+
+<div class="item" >
+    <div class="info">
+        <h3 data-img="7.jpg">product 7</h3>
+    </div>
+    <img src="7.jpg" class="img" alt="product 7">
+</div>
+
+
+<div class="item">
+    <div class="info">
+        <h3 data-img="8.jpg">product 8</h3>
+    </div>
+    <img src="8.jpg" class="img" alt="product 8">
+</div>
+
+
+<div class="item">
+    <div class="info">
+        <h3 data-img="9.jpg">product 9</h3>
+    </div>
+    <img src="9.jpg" class="img" alt="product 9">
+</div>
+
+
+<div class="item">
+    <div class="info">
+        <h3 data-img="10.jpg">product 10</h3>
+    </div>
+    <img src="10.jpg" class="img" alt="product 10">
+</div>
+
+</div>
+    </div>
+
+
+<div class="dinamic-content">
+    
+    <div class="dinamic-content-body">
+        <h1>Home</h1>
+        <div class="body-content"></div>
+    </div>
+</div>
+
+
+    <script src="main.js"></script>
+    <script>const main = new Main(); main.run();</script>
+</body>
+</html>
